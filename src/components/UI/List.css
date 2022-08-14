@@ -1,0 +1,25 @@
+.description {
+  padding: 0.3rem 0.5rem;
+  margin: 1rem;
+}
+
+.title {
+  color: #3a3a3a;
+  float: left;
+  font-size: 1rem;
+  margin: 0.6rem;
+}
+
+.description div {
+  text-align: right;
+}
+
+.rewards-earnings,
+.rewards-expenditures {
+  color: #7a8991;
+  font-style: italic;
+}
+
+.rewards-text {
+  color: #000;
+}

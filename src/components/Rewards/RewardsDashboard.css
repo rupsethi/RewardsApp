@@ -1,0 +1,14 @@
+.reward-dashboard {
+  padding: 1rem;
+  background-color: rgb(233 226 226);
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  color: white;
+}
+
+.reward-dashboard p {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  text-align: left;
+}

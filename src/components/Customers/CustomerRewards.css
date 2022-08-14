@@ -1,0 +1,29 @@
+.rewards {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 50rem;
+  max-width: 94%;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+.rewards-title {
+  color: #3a3a3a;
+  font-size: 1rem;
+  margin: 0;
+  display: inline-block;
+}
+
+.rewards-title-viewlink {
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.rewards-title-viewlink:hover,
+.rewards-title-viewlink:visited,
+.rewards-title-viewlink:active {
+  text-decoration: underline;
+}

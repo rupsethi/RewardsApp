@@ -1,26 +1,18 @@
+// import core dependencies
 import React from "react";
 
-import './config';
-import logo from './logo.svg';
+// import custom dependencies
+import './Config';
+import RewardsDashboard from "./components/Rewards/RewardsDashboard";
+
+// import component stylesheet
 import './App.css';
 
 function App() {
+  // return JSX syntactic sugar for React.createElement
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RewardsDashboard />
     </div>
   );
 }
