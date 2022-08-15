@@ -11,6 +11,7 @@ const appRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="/details/:customerId" element={<Transaction />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

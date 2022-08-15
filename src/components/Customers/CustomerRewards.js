@@ -1,6 +1,6 @@
 // import core dependencies
 import React, { Fragment, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams, Outlet } from "react-router-dom";
 
 // import custom dependencies
 import { RewardsContext } from "../../Contexts/RewardsContext";
@@ -36,8 +36,13 @@ const CustomerRewards = () => {
     <Fragment>
       <div className="rewards">
         <h2 className="rewards-title">Rewards Earned In Last Three Months:</h2>
+        {!customerId && <NavLink
+          to={customerId ? "/" : `/details/${reward.customer}`} 
+          className="rewards-title-viewlink"
+        > View Details</NavLink>}
         {rewardsContent}
       </div>
+      <Outlet />
     </Fragment>
   );
 };

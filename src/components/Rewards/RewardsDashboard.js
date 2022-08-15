@@ -1,48 +1,58 @@
 // import core dependencies
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 // import custom dependencies
+import { useRewards } from "../../Hooks/useRewards";
 import { RewardsContext } from "../../Contexts/RewardsContext";
 import Card from "../UI/Card";
 import Customer from "../Customers/Customer";
 import CustomerRewards from "../Customers/CustomerRewards";
+import CustomerFilter from "../Customers/CustomerFilter";
 
 // import component stylesheet
 import "./RewardsDashboard.css";
 
 const RewardsDashboard = () => {
-  const rewards = [
-    {
-      customer: 1,
-      purchases: [
-        { tid: "11", date: "2022-07-01", amount: 38.87 },
-        { tid: "12", date: "2022-06-09", amount: 116.5 },
-      ],
-      rewards: { total: 84, July: 0, June: 84 },
-    },
-    {
-      customer: 2,
-      purchases: [
-        { tid: "21", date: "2022-08-06", amount: 67.29 },
-      ],
-      rewards: { total: 17, August: 17 },
-    },
-  ];
+  const [filteredCustomer, setFilteredCustomer] = useState(-1);
 
-  let customerContent = <p>No customers found.</p>;
+  const rewards = useRewards();
+
+  const onChangeHandler = (filteredCustomer) => {
+    setFilteredCustomer(filteredCustomer);
+  };
+
+  const { customerId } = useParams();
+
+  let customerContent = <p>No customer found.</p>;
 
   if (rewards.length > 0) {
-    customerContent = rewards.map((reward) => (
-      <RewardsContext.Provider key={reward.customer} value={{ reward }}>
-        <Customer>
-          <CustomerRewards />
-        </Customer>
-      </RewardsContext.Provider>
-    ));
+    customerContent = rewards
+      .filter((r) =>
+      customerId
+          ? r.customer === Number(customerId)
+          : r.customer === filteredCustomer || filteredCustomer === -1
+      )
+      .map((reward) => (
+        <RewardsContext.Provider key={reward.customer} value={{ reward }}>
+          <Customer>
+            <CustomerRewards />
+          </Customer>
+        </RewardsContext.Provider>
+      ));
   }
 
   // return JSX syntactic sugar for React.createElement
-  return <Card className="reward-dashboard">{customerContent}</Card>;
+  return (
+    <Card className="reward-dashboard">
+      <CustomerFilter
+        rewards={rewards}
+        selected={filteredCustomer}
+        onChangeFilter={onChangeHandler}
+      />
+      {customerContent}
+    </Card>
+  );
 };
 
 export default RewardsDashboard;
