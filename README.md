@@ -17,10 +17,12 @@ Given a record of every transaction during a three month period, calculate the r
 - Make up a data set to best demonstrate your solution;
 - Check solution into GitHub
 
-# App Features
-- yet to be added 
-- yet to be added
-- yet to be added
+# App Highlights
+- Context API Implentation
+- Custom Hook Implementation 
+- Functional Components 
+- Global Config Management
+- Mockup API and Utils
 
 # Getting Started with Create React App
 
