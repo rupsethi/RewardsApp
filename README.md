@@ -1,6 +1,8 @@
 # RewardsApp - React UI
 For calculating rewards via React UI using javascript.
 
+![](https://i.ibb.co/Phzn9g2/Rewards-App.png)
+
 # App Requirements
 A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
 
